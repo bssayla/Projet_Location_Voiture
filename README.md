@@ -3,7 +3,7 @@ Cette application est un project donner dans le cadre d'Universite Ibn Zohr pour
 par la pr. Salwa Belaqziz
 # Inroduction
 Se programme est application pour gestion d'une agrence de loction de voitures.cette dernière permetta de realiser  toutes les operations nécessaires pour la gestion des cliens(locataires),la gestion des voitures et la gestion des locations.
-Toutes les données manipulées sont engestrées dans des petites base de données <<voitures>>,<<clients>> et <<contrats>>
+Toutes les données manipulées sont engestrées dans des petites base de données "voitures","clients" et "contrats"
 
 ## Compilation De Project
 J'ai deja fait un shell script pour la copilation de projet Suivi les etapes suivant:
