@@ -6,14 +6,15 @@ Se programme est application pour gestion d'une agrence de loction de voitures.c
 Toutes les données manipulées sont engestrées dans des petites base de données "voitures","clients" et "contrats"
 
 ## Compilation De Project
-J'ai deja fait un shell script pour la copilation de projet Suivi les etapes suivant:
+J'ai deja fait un shell script pour la compilation de projet. 
+Suivi les etapes suivant:
 ### step 1
-Entrer a la place ou vous insteller le dossier de projet
+Entrer a la place ou vous installer le dossier de projet
 ```bash
 mypc:/> cd path_of_the_projet
 ```
 ### step 2
-change les autorisations de fichier "compile.bash"
+changer les autorisations de fichier "compile.bash"
 ```bash
 mypc:/> chmod 744 compile.bash
 ```
