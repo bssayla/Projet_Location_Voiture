@@ -10,22 +10,22 @@ J'ai deja fait un shell script pour la copilation de projet Suivi les etapes sui
 ### step 1
 Entrer a la place ou vous insteller le dossier de projet
 ```bash
-  mypc:/> cd path_of_the_projet
+mypc:/> cd path_of_the_projet
 ```
 ### step 2
-change les permition de fichier "compile.bash"
+change les autorisations de fichier "compile.bash"
 ```bash
-  mypc:/> chmod 744 compile.bash
+mypc:/> chmod 744 compile.bash
 ```
 ### step 3
 Executer le script pour la compilation de projet
 ```bash
- mypc:/> ./compile.bash
+mypc:/> ./compile.bash
 ```
 ### step 4
 Executer la main programe
-```
-  mypc:/> ./main.exe
+```bash
+mypc:/> ./main.exe
 ```
 ### My Social account:
   [LinkedIn](https://www.linkedin.com/in/mohamed-o-b9791aba/) \
