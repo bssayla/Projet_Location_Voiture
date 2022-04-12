@@ -1,0 +1,15 @@
+i think it good if we make the (EnLocation) variable in voiture struct in bool instade of char that will make easy.
+cin should be char cuz it may had numbers and caracteres in it
+
+the way i write in files:
+    1- voitures.txt
+        %d - %s - %s - %s - %d - %d - %s\n
+        id - marque - nom - couleur - nbPlace - prixParJour - dispo
+    2- contrats.txt
+        %f - %d - %d - %d / %d / %d - %d / %d / %d - %d\n
+        id_contrat - id_v - id_c - debut - lafin - cout
+    3- clients.txt
+        %d - %s - %s - %d - %s - %d\n
+        id - nom - prenom - cin - adress - telephone
+
+why the numContrat is float instead of int
