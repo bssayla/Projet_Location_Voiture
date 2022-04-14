@@ -13,9 +13,11 @@ bool est_exist(char *fichier,int idVoiture){
     do{
         fscanf(voiture_db,"%d - %s - %s - %s - %d - %d - %s\n",&id,marque,nomVoitures,col,&nb_places,&prix_par_jour,en_location);
         if(idVoiture==id){
+            fclose(voiture_db);
             return true;
         }
     }while(!feof(voiture_db));
+    fclose(voiture_db);
     return false;
 }
 bool est_disponible(char* fichier,int idVoiture){
@@ -30,9 +32,11 @@ bool est_disponible(char* fichier,int idVoiture){
     do{
         fscanf(voiture_db,"%d - %s - %s - %s - %d - %d - %s\n",&id,marque,nomVoitures,col,&nb_places,&prix_par_jour,en_location);
         if(idVoiture == id && (strcmp(en_location,"non") == 0)){
+            fclose(voiture_db);
             return true;
         }
     }while(!feof(voiture_db));
+    fclose(voiture_db);
     return false;
 }
 void ajouter_voiture(char* fichier){
@@ -72,6 +76,7 @@ void ajouter_voiture(char* fichier){
         printf("|                  Ce ID deja exist                   |\n");
         printf("-------------------------------------------------------\n");
         ajouter_voiture(fichier);
+        fclose(voiture_db);
         return;
     }else{
         fprintf(voiture_db,"%d - %s - %s - %s - %d - %d - %s\n",id,marque,nomVoitures,col,nb_places,prix_par_jour,en_location);        

@@ -13,9 +13,11 @@ bool client_deja_existe(char* fichier,int id){
     char f_nom[20],f_prenom[20],adress[30];    do{
         fscanf(client_db,"%d - %s - %s - %d - %s - %d\n",&f_id,f_nom,f_prenom,&cin,adress,&telephone);
         if(f_id==id){
+            fclose(client_db);
             return true;
         }
     }while(!feof(client_db));
+    fclose(client_db);
     return false;
 }
 void ajouter_client(char* fichier){
@@ -83,6 +85,7 @@ void afficher_tous_les_clients(char* fichier){
         fscanf(clients_db,"%d - %s - %s - %d - %s - %d\n",&c.idClient,c.nom,c.prenom,&c.cin,c.adresse,&c.telephone);
         afficher_client(c);
     }while(!feof(clients_db));
+    fclose(clients_db);
     return;
 }
 

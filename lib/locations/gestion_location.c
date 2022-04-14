@@ -75,6 +75,7 @@ void visualiser_location(char* fichier,int numero_contrat){
                 contrat_location.fin.annee=f_annee;
                 contrat_location.cout=cout;
                 afficher_contrat(contrat_location);
+                fclose(fichier_location);
                 return;
             }
         
@@ -154,6 +155,7 @@ void ajouter_contrat(char* voiture_db,char* client_db,char* location_db){
     fprintf(fichier_contrat,"%d - %d - %d - %d / %d / %d - %d / %d / %d - %d\n",id_contrat,id_voiture,id_client,d_jour,d_mois,d_annee,f_jour,f_mois,f_annee,cout);
     printf("\nLe contrat a ete ajoute avec succes\n");
     //colse le fichier
+    fclose(fichier_voiture);
     fclose(fichier_contrat);
     return;
 }
@@ -249,5 +251,7 @@ void modifier_une_contrat(int num_contrat ,char* clients_db,char* voiture_db,cha
     
     fprintf(fichier_contrat,"%d - %d - %d - %d / %d / %d - %d / %d / %d - %d\n",id_contrat,id_voiture,id_client,d_jour,d_mois,d_annee,f_jour,f_mois,f_annee,cout);
     
+    fclose(fichier_contrat);
+    fclose(fichier_contrat_tmp);
     return;
 }
