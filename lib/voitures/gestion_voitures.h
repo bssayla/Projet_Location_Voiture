@@ -15,5 +15,6 @@ void afficher_toutes_les_voitures(char* fichier);
 void modifier_voiture(char* fichier,int idVoiture);
 void supprimer_voiture(char* fichier,int idVoiture);
 void switch_la_location(char* fichier,int idVoiture);
+int get_prix(char* fichier,int idVoiture);
 
 #endif

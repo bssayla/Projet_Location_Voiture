@@ -200,3 +200,20 @@ void switch_la_location(char* fichier,int idVoiture){
     fclose(voiture_db);
     return;
 }
+int get_prix(char* fichier,int idVoiture){
+    //le programme ecrit par: Mohamed Ouaicha
+    FILE* voiture_db=fopen(fichier,"r");
+    int id,nb_places,prix_par_jour;
+    char marque[15],nomVoitures[15],en_location[4],col[7];
+    do{
+        fscanf(voiture_db,"%d - %s - %s - %s - %d - %d - %s\n",&id,marque,nomVoitures,col,&nb_places,&prix_par_jour,en_location);
+        if(idVoiture==id){
+            return prix_par_jour;
+        }
+    }while(!feof(voiture_db));
+    printf("\n-------------------------------------------------------\n");
+    printf("|              La voiture n'existe pas                |\n");
+    printf("-------------------------------------------------------\n");
+    fclose(voiture_db);
+    return 0;
+}

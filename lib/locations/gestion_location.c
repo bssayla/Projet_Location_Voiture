@@ -92,7 +92,8 @@ void ajouter_contrat(char* voiture_db,char* client_db,char* location_db){
 
     FILE* fichier_contrat=fopen(location_db,"a");
     FILE* fichier_voiture=fopen(voiture_db,"a+");
-    int id_contrat,id_voiture,id_client,cout,d_jour,d_mois,d_annee,f_jour,f_mois,f_annee;
+    int id_contrat,id_voiture,id_client,cout;
+    date debut,fin;
     //on va stocker la valeur du fonction exist et dispo pour pas les faire deux foix
     bool V1,V2;
     //prend les infos du contrat
@@ -140,19 +141,19 @@ void ajouter_contrat(char* voiture_db,char* client_db,char* location_db){
     }while(!V1);
 
     printf("Date de debut(jj/mm/aaaa): ");
-    scanf("%d/%d/%d",&d_jour,&d_mois,&d_annee);
+    scanf("%d/%d/%d",&debut.jour,&debut.mois,&debut.annee);
 
     printf("Date de fin(jj/mm/aaaa): ");
-    scanf("%d/%d/%d",&f_jour,&f_mois,&f_annee);
+    scanf("%d/%d/%d",&fin.jour,&fin.mois,&fin.annee);
 
-    printf("Prix: ");
-    scanf("%d",&cout);
+    cout = get_prix(voiture_db,id_voiture)*nombre_des_jours(debut,fin);
+
     printf("\n-------------------------------------------------------\n");
     
     //la voiture faut  etre undispo maintenant
     switch_la_location(voiture_db,id_voiture);
     //ajouter les info de contrat
-    fprintf(fichier_contrat,"%d - %d - %d - %d / %d / %d - %d / %d / %d - %d\n",id_contrat,id_voiture,id_client,d_jour,d_mois,d_annee,f_jour,f_mois,f_annee,cout);
+    fprintf(fichier_contrat,"%d - %d - %d - %d / %d / %d - %d / %d / %d - %d\n",id_contrat,id_voiture,id_client,debut.jour,debut.mois,debut.annee,fin.jour,fin.mois,fin.annee,cout);
     printf("\nLe contrat a ete ajoute avec succes\n");
     //colse le fichier
     fclose(fichier_voiture);
@@ -202,7 +203,8 @@ void modifier_une_contrat(int num_contrat ,char* clients_db,char* voiture_db,cha
     //le programme ecrit par: Mohamed Ouaicha
 
     
-    int id_contrat,id_voiture,id_client,cout,d_jour,d_mois,d_annee,f_jour,f_mois,f_annee;
+    int id_contrat,id_voiture,id_client,cout;
+    date debut,fin;
     FILE* fichier_contrat;
     FILE* fichier_contrat_tmp=fopen("contrat_tmp.txt","w");
     bool V1,V2;
@@ -237,19 +239,18 @@ void modifier_une_contrat(int num_contrat ,char* clients_db,char* voiture_db,cha
     }while(!client_deja_existe(clients_db,id_client));
 
     printf("Date de debut(jj/mm/aaaa): ");
-    scanf("%d/%d/%d",&d_jour,&d_mois,&d_annee);
+    scanf("%d/%d/%d",&debut.jour,&debut.mois,&debut.annee);
 
     printf("Date de fin(jj/mm/aaaa): ");
-    scanf("%d/%d/%d",&f_jour,&f_mois,&f_annee);
+    scanf("%d/%d/%d",&fin.jour,&fin.mois,&fin.annee);
 
-    printf("Prix: ");
-    scanf("%d",&cout);
+    cout = get_prix(voiture_db,id_voiture)*nombre_des_jours(debut,fin);
     printf("\n-------------------------------------------------------\n");
 
     
     fichier_contrat=fopen(contrat_db,"a");
     
-    fprintf(fichier_contrat,"%d - %d - %d - %d / %d / %d - %d / %d / %d - %d\n",id_contrat,id_voiture,id_client,d_jour,d_mois,d_annee,f_jour,f_mois,f_annee,cout);
+    fprintf(fichier_contrat,"%d - %d - %d - %d / %d / %d - %d / %d / %d - %d\n",id_contrat,id_voiture,id_client,debut.jour,debut.mois,debut.annee,fin.jour,fin.mois,fin.annee,cout);
     
     fclose(fichier_contrat);
     fclose(fichier_contrat_tmp);

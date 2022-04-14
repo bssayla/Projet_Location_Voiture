@@ -41,4 +41,7 @@ typedef struct client{
 }client;
 
 
+int annees_bissextiles(date d);
+int nombre_des_jours(date d1,date d2);
+
 #endif
