@@ -237,14 +237,20 @@ void modifier_une_contrat(int num_contrat ,char* clients_db,char* voiture_db,cha
         printf("  |          Il ya pas un clien avec se id              |");
         printf("\n-------------------------------------------------------\n");
     }while(!client_deja_existe(clients_db,id_client));
+    do{
+        printf("Date de debut(jj/mm/aaaa): ");
+        scanf("%d/%d/%d",&debut.jour,&debut.mois,&debut.annee);
 
-    printf("Date de debut(jj/mm/aaaa): ");
-    scanf("%d/%d/%d",&debut.jour,&debut.mois,&debut.annee);
+        printf("Date de fin(jj/mm/aaaa): ");
+        scanf("%d/%d/%d",&fin.jour,&fin.mois,&fin.annee);
 
-    printf("Date de fin(jj/mm/aaaa): ");
-    scanf("%d/%d/%d",&fin.jour,&fin.mois,&fin.annee);
-
-    cout = get_prix(voiture_db,id_voiture)*nombre_des_jours(debut,fin);
+        cout = get_prix(voiture_db,id_voiture)*nombre_des_jours(debut,fin);
+        if(cout<=0){
+            printf("\n-------------------------------------------------------\n");
+            printf("  |    La date de debut doit etre inferieur a la fin    |");
+            printf("\n-------------------------------------------------------\n");
+        }
+    }while(cout<=0);
     printf("\n-------------------------------------------------------\n");
 
     
